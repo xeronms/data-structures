@@ -8,5 +8,6 @@ int main(){
 
 	T1.insert(a);
 	T1.insert(b);T1.insert(c);
+	T1.walk();
 	return 0;
 }

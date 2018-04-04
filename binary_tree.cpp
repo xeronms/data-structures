@@ -21,8 +21,6 @@ void binary_tree::insert(node& z, node* tmp){
 		else
 			tmp->left= new node(z);
 	}
-	
-
 }
 
 void binary_tree::insert(node& z){
@@ -31,3 +29,17 @@ void binary_tree::insert(node& z){
 	else 
 		root = new node(z);
 }
+
+
+void binary_tree::walk(node* a){
+	if ( a != NULL ){
+		walk(a->right);
+		printf("%d\n", a->key);
+		walk(a->left);
+	}
+}
+
+void binary_tree::walk(){
+	walk(root);
+}
+

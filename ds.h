@@ -22,6 +22,8 @@ public:
 	binary_tree(binary_tree&);
 	void insert(node &,node *);
 	void insert(node&);
+	void walk();
+	void walk(node *);
 };
 
 #endif
