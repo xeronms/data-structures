@@ -20,10 +20,14 @@ public:
 		{
 		case MAX_SIZE:
 			throw size_err();
+			break;
 		case 0:
 			tab = (T**) malloc (lim*sizeof(T*));
-		case lim-1:
-
+			break;
+		case lim:
+			lim += LIMIT_N;
+			tab = (T**) realloc (tab, lim*sizeof(T*));
+			break;	
 		default:
 			break;
 		}
