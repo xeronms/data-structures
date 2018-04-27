@@ -3,6 +3,8 @@
 #include <stdlib.h>
 
 struct size_err{};
+struct empty_err{};
+enum errors {size_err,empty_err};
 
 template<typename T, int MAX_SIZE, int LIMIT_N>
 class Stack{
@@ -10,17 +12,16 @@ class Stack{
 	int top;
 	int lim; // after every amount of LIMIT_N elements added we extend the memory of the stack for another LIMIT_N of elements
 public:
-	Stack():top(0),lim(LIMIT_N){}
+	Stack():top(0),lim(LIMIT_N){
+		tab = (T**) malloc (lim*sizeof(T*));
+	}
 	~Stack(){
-		if (top)
 		free(tab);
 	}
 	T** tab;
 	void push(T& e){ //const?
 		if (top==MAX_SIZE) throw size_err();
-
-		if (!top) tab = (T**) malloc (lim*sizeof(T*));
-
+		
 		if (top==lim){
 			lim += LIMIT_N;
 			tab = (T**) realloc (tab, lim*sizeof(T*));
@@ -29,26 +30,19 @@ public:
 		tab[top++] = &e;
 	}
 
-	T pop();
-	bool is_empty() const;
+	T pop(){
+		if (is_empty()) throw empty_err();// or return T();
+		if (top == lim-LIMIT_N){
+			lim -= LIMIT_N;	
+			tab = (T**) realloc (tab, (lim*sizeof(T*)));
+		}
+
+		return *tab[--top];
+	}
+
+	bool is_empty() const{
+		return !top;
+	}
 };
 
-/*
-int pop(Stos*stos){
-	if (stos->top == 0)
-		return 0;
-
-	if (stos->top == 1)
-		free(stos->tab);
-
-
-	--(stos->top);
-
-	if (stos->top < stos->lim-10){
-		stos->lim -= 10;	
-		stos->tab = (void**) realloc (stos->tab, (stos->lim*sizeof(void*)));
-	}
-	return 1;
-}
-*/
 #endif

@@ -1,6 +1,6 @@
 #include "binary_tree.h"
 #include "dynamic_stack.h"
-
+#include <iostream>
 
 int main(){
 	node a(5);
@@ -12,14 +12,18 @@ int main(){
 	T1.insert(b);T1.insert(c);
 	T1.walk();
 
-	Stack<int,1000,50> S1;
+
+	try{
+	Stack<int,1000,2> S1;
 	int t[110];
 	for (int j=0; j<110; ++j){
 		t[j] = j+1;
-		S1.push(t[j]);
-		printf("%d",t[j]);
+		S1.push(t[j]);S1.pop();
+		printf("%d %d",*S1.tab[j],S1.is_empty());
+		
 	}
-	
+	}
+	catch (errors){std::cout << "ERR"<< std::endl;}
 
 	return 0;
 }
