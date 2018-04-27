@@ -4,14 +4,14 @@
 
 struct size_err{};
 struct empty_err{};
-enum errors {size_err,empty_err};
+//enum errors {size_err,empty_err};
 
 template<typename T, int MAX_SIZE, int LIMIT_N>
 class Stack{
-	
+	T** tab;
 	int top;
 	int lim; // after every amount of LIMIT_N elements added we extend the memory of the stack for another LIMIT_N of elements
-public:T** tab;
+public:
 	Stack():top(0),lim(LIMIT_N){
 		tab = (T**) malloc (lim*sizeof(T*));
 	}
