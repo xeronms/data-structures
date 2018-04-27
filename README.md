@@ -1,5 +1,3 @@
-# data-structures
-
 # dynamic stack
 
 My stack template implementation with dynamic memory allocation.
