@@ -13,10 +13,11 @@ int main(){
 	T1.walk();
 
 	Stack<int,1000,50> S1;
-	int t[100];
-	for (int j=0; j<10; ++j){
+	int t[110];
+	for (int j=0; j<110; ++j){
 		t[j] = j+1;
 		S1.push(t[j]);
+		printf("%d",t[j]);
 	}
 	
 

@@ -6,16 +6,17 @@ struct size_err{};
 
 template<typename T, int MAX_SIZE, int LIMIT_N>
 class Stack{
-	T** tab;
+	
 	int top;
 	int lim; // after every amount of LIMIT_N elements added we extend the memory of the stack for another LIMIT_N of elements
 public:
 	Stack():top(0),lim(LIMIT_N){}
 	~Stack(){
-		//free
+		if (top)
+		free(tab);
 	}
-
-	void push(const T& e){
+	T** tab;
+	void push(T& e){ //const?
 		if (top==MAX_SIZE) throw size_err();
 
 		if (!top) tab = (T**) malloc (lim*sizeof(T*));
