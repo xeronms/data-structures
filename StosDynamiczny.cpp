@@ -38,7 +38,7 @@ int pop(Stos*stos){
 	}
 	return 1;
 }
-
+/*
 int main(){
 	int i;
 	Stos stos;
@@ -59,4 +59,4 @@ int main(){
 
 	if (stos.top) free(stos.tab);
 	return 0;
-}
+}*/

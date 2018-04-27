@@ -1,5 +1,5 @@
-#ifndef BIN_TREE_
-#define BIN_TREE_
+#ifndef BIN_TREE_H
+#define BIN_TREE_H
 
 #include <iostream>
 
