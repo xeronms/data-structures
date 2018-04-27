@@ -38,21 +38,7 @@ public:
 	bool is_empty() const;
 };
 
-
-int add(void* element, Stos*stos){
-	if (stos->top == MAX) return 0;
-	if (stos->top == 0){
-		stos->tab = (void**) malloc (stos->lim*sizeof(void*));
-	}
-	else if ((stos->top) > (stos->lim)){
-		stos->lim += 10;
-		stos->tab = (void**) realloc (stos->tab, stos->lim*sizeof(void*));
-	}
-	stos->tab[stos->top] = element;
-	++(stos->top);
-	return 1;
-}
-
+/*
 int pop(Stos*stos){
 	if (stos->top == 0)
 		return 0;
@@ -69,5 +55,5 @@ int pop(Stos*stos){
 	}
 	return 1;
 }
-
+*/
 #endif
