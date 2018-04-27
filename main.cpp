@@ -1,4 +1,5 @@
-#include "ds.h"
+#include "binary_tree.h"
+#include "dynamic_stack.h
 
 int main(){
 	node a(5);
