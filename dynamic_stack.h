@@ -16,22 +16,16 @@ public:
 	}
 
 	void push(const T& e){
-		switch (top)
-		{
-		case MAX_SIZE:
-			throw size_err();
-			break;
-		case 0:
-			tab = (T**) malloc (lim*sizeof(T*));
-			break;
-		case lim:
+		if (top==MAX_SIZE) throw size_err();
+
+		if (!top) tab = (T**) malloc (lim*sizeof(T*));
+
+		if (top==lim){
 			lim += LIMIT_N;
 			tab = (T**) realloc (tab, lim*sizeof(T*));
-			break;	
-		default:
-			break;
 		}
-		tab[top++] = e;
+
+		tab[top++] = &e;
 	}
 
 	T pop();
