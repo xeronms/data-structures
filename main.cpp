@@ -18,10 +18,10 @@ int main(){
 	int t[110];
 	for (int j=0; j<110; ++j){
 		t[j] = j+1;
-		S1.push(t[j]);S1.pop();
+		S1.push(t[j]);
 		printf("%d %d",*S1.tab[j],S1.is_empty());
 		
-	}
+	}S1.pop();
 	}
 	catch (errors){std::cout << "ERR"<< std::endl;}
 

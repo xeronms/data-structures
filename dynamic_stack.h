@@ -11,14 +11,14 @@ class Stack{
 	
 	int top;
 	int lim; // after every amount of LIMIT_N elements added we extend the memory of the stack for another LIMIT_N of elements
-public:
+public:T** tab;
 	Stack():top(0),lim(LIMIT_N){
 		tab = (T**) malloc (lim*sizeof(T*));
 	}
 	~Stack(){
 		free(tab);
 	}
-	T** tab;
+	
 	void push(T& e){ //const?
 		if (top==MAX_SIZE) throw size_err();
 		
