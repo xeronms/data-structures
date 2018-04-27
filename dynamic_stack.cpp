@@ -2,11 +2,9 @@
 #include <stdlib.h>
 #define MAX 100
 
-typedef struct {
-	void** tab;
-	int top;
-	int lim;
-} Stos;
+
+
+
 
 int add(void* element, Stos*stos){
 	if (stos->top == MAX) return 0;
