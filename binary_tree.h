@@ -1,5 +1,5 @@
-#ifndef data_structures
-#define data_structures
+#ifndef BIN_TREE_
+#define BIN_TREE_
 
 #include <iostream>
 
