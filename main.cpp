@@ -1,6 +1,9 @@
 #include "binary_tree.h"
 #include "dynamic_stack.h"
+#include "singly_linked_list.h"
 #include <iostream>
+
+
 
 int main(){
 	node a(5);
@@ -25,6 +28,11 @@ int main(){
 		}
 	}
 	catch (Exception ex){std::cout << "ERR"<< std::endl;}
+
+
+	singly_linked_list<int> L1;
+	int t =20;
+	L1.push(t);
 
 	return 0;
 }

@@ -3,21 +3,32 @@
 
 template<typename T>
 class element{
-		T data;
+
+		T& data;
 		element* next;
-	};
+};
+
 
 
 template<typename T>
 class singly_linked_list {
-	element* head;
-	element* tail;
+
+	element<T> *head;
+	element<T> *tail;
 
 public:
 
-	void push(const T& e);
+	void push(const T& e){
+		element<T> x;
+		x.data = e;
+		x.next = head;
+		//
+		head =  x;
+		//
+	}
+
 	T pop();
-	const T& search(const element&) const;
+	const T& search(const element<T>&) const;
 
 };
 
