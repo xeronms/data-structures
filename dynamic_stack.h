@@ -9,12 +9,12 @@ struct empty_err : public Exception { };
 
 template<typename T, int MAX_SIZE, int LIMIT_N>
 class Stack{
-	T** tab;
+	T* tab;
 	int top;
 	int lim; // after every amount of LIMIT_N elements added we extend the memory of the stack for another LIMIT_N of elements
 public:
 	Stack():top(0),lim(LIMIT_N){
-		tab = (T**) malloc (lim*sizeof(T*));
+		tab = (T*) malloc (lim*sizeof(T));
 	}
 	~Stack(){
 		free(tab);
@@ -25,24 +25,27 @@ public:
 		
 		if (top==lim){
 			lim += LIMIT_N;
-			tab = (T**) realloc (tab, lim*sizeof(T*));
+			tab = (T*) realloc (tab, lim*sizeof(T));
 		}
 
-		tab[top++] = &e;
+		tab[top++] = e;
 	}
 
 	T pop(){
 		if (is_empty()) throw empty_err();// or return T();
 		if (top == lim-LIMIT_N){
 			lim -= LIMIT_N;	
-			tab = (T**) realloc (tab, (lim*sizeof(T*)));
+			tab = (T*) realloc (tab, (lim*sizeof(T)));
 		}
 
-		return *tab[--top];
+		return tab[--top];
 	}
 
 	bool is_empty() const{
 		return !top;
+	}
+	int size() const{
+		return top;
 	}
 };
 
