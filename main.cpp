@@ -14,16 +14,17 @@ int main(){
 
 
 	try{
-	Stack<int,1000,20> S1;
-	int t[1000];
-	for (int j=0; j<1000; ++j){
-		t[j] = j+1;
-		S1.push(t[j]);
+		Stack<int,1000,20> S1;
+		int t[1000];
+		for (int j=0; j<1000; ++j){
+			t[j] = j+1;
+			S1.push(t[j]);
+		}
+		for (int j=0; j<590; ++j){
+			S1.pop();
+		}
 	}
-	for (int j=0; j<590; ++j){
-		S1.pop();
-	}}
-	catch (size_err){std::cout << "ERR"<< std::endl;}
-	catch (empty_err){std::cout << "ERR"<< std::endl;}
+	catch (Exception ex){std::cout << "ERR"<< std::endl;}
+
 	return 0;
 }

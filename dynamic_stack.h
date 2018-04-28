@@ -2,9 +2,10 @@
 #define DYN_STACK_H
 #include <stdlib.h>
 
-struct size_err{};
-struct empty_err{};
-//enum errors {size_err,empty_err};
+struct Exception { };
+struct size_err : public Exception { };
+struct empty_err : public Exception { };
+
 
 template<typename T, int MAX_SIZE, int LIMIT_N>
 class Stack{
