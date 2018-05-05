@@ -32,7 +32,8 @@ int main(){
 
 	singly_linked_list<int> L1;
 	int t =20;
-	L1.push(t);
+	//element<int> a(t);
+	//L1.push(element<int> (t));
 
 	return 0;
 }
