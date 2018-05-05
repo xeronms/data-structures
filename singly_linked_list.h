@@ -13,7 +13,6 @@ public:
 };
 
 
-
 template<typename T>
 class singly_linked_list {
 
@@ -65,6 +64,12 @@ T singly_linked_list<T>::pop(){
 }
 
 
-template
+template<typename T>
+void singly_linked_list<T>::clear(){
+
+	while (l_size){
+		pop();
+	}
+}
 
 #endif
