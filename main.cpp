@@ -5,7 +5,8 @@
 
 
 
-int main(){
+int main(){ //przykladowe dzialania
+
 	node a(5);
 	node b(8);
 	node c(2);
@@ -33,9 +34,13 @@ int main(){
 	singly_linked_list<int> L1;
 	int t =20, r = 10, s= 15;
 	L1.push(t);L1.push(r);L1.push(s);
-	printf("%d\n",L1.pop());
+	printf("%d\n",L1.pop());L1.next();
+	printf("%d\n",L1.next());
 	L1.clear();
-	printf("%d\n",L1.size());
+
+	singly_linked_list<int> L2;
+	L2.push(s);
+	printf("%d\n",L2!=L1);
 
 	return 0;
 }
