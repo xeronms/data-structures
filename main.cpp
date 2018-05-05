@@ -1,6 +1,7 @@
 #include "binary_tree.h"
 #include "dynamic_stack.h"
 #include "singly_linked_list.h"
+#include "doubly_linked_list.h"
 #include <iostream>
 
 
@@ -42,5 +43,9 @@ int main(){ //przykladowe dzialania
 	L2.push(s);
 	printf("%d\n",L2!=L1);
 
+
+	doubly_linked_list<double> L3;
+	double t2 =20, r2 = 10, s2= 15;
+	L3.push(t2);L3.push(r2);L3.push(s2);
 	return 0;
 }

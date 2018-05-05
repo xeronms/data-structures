@@ -6,9 +6,10 @@ class element{
 public:
 		T* data;
 		element* next;
+		element* prev;
 
-		element():next(NULL), data(NULL){}
-		element(T& a):data(&a),next(NULL){}
+		element():next(NULL), prev(NULL), data(NULL){}
+		element(T& a):data(&a),next(NULL), prev(NULL){}
 
 };
 
