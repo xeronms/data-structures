@@ -3,9 +3,15 @@
 
 template<typename T>
 class element{
-
-		T& data;
+public:
+		T* data;
 		element* next;
+		element():next(NULL), data(NULL){}
+		/*element(const element& a){
+			data = a.data;
+			next = a.next;
+		}*/
+		~element(){	delete next; delete data;}
 };
 
 
@@ -17,13 +23,15 @@ class singly_linked_list {
 	element<T> *tail;
 
 public:
+		singly_linked_list():head(NULL), tail(NULL){}
+		~singly_linked_list(){	delete head; delete tail;}
 
-	void push(const T& e){
+	void push( T& e){
 		element<T> x;
-		x.data = e;
+		x.data = &e;
 		x.next = head;
 		//
-		head =  x;
+		head =  &x;
 		//
 	}
 

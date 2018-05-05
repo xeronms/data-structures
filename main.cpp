@@ -27,7 +27,7 @@ int main(){
 			S1.pop();
 		}
 	}
-	catch (Exception ex){std::cout << "ERR"<< std::endl;}
+	catch (Exception){std::cout << "ERR"<< std::endl;}
 
 
 	singly_linked_list<int> L1;
