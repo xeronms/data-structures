@@ -31,9 +31,9 @@ int main(){
 
 
 	singly_linked_list<int> L1;
-	int t =20;
-	//element<int> a(t);
-	//L1.push(element<int> (t));
+	int t =20, r = 10, s= 15;
+	L1.push(t);L1.push(r);L1.push(s);
+	printf("%d\n",L1.pop());
 
 	return 0;
 }
