@@ -64,7 +64,7 @@ T doubly_linked_list<T>::pop(){
 template<typename T>
 T doubly_linked_list<T>::back(){
 	i = l_size;
-	return *head->data;
+	return *tail->data;
 }
 
 
@@ -72,11 +72,13 @@ template<typename T>
 T doubly_linked_list<T>::previous(){
 	element<T>* e = head;
 	
-	for (int j=0; j<i; ++j){
-		e = e->next;
-	}
+	if (i!=0){
+		for (int j=l_size; j>i; --j){
+			e = e->prev;
+		}
 	
-	++i;
+		--i;
+	}
 	return *e->data;
 }
 

@@ -102,6 +102,7 @@ T singly_linked_list<T>::next(){
 }
 
 
+
 template<typename T>
 bool singly_linked_list<T>::operator==(singly_linked_list<T>& L){
 	if ( l_size != L.l_size ) return 0;
