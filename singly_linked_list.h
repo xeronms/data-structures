@@ -30,9 +30,7 @@ public:
 	singly_linked_list():head(NULL), l_size(0), i(0){}
 	
 	void push(T& e);
-	void push_back(T& e);
 	T pop();
-	T pop_back();
 	void clear();
 	T front();
 	T next();
@@ -46,7 +44,7 @@ public:
 
 
 template<typename T>
-void singly_linked_list<T>::push(T& e){ // z³o¿onoœæ push front O(1)
+void singly_linked_list<T>::push(T& e){ // z³o¿onoœæ czasowa dla push front O(1)
 
 	element<T>* node;
 
@@ -56,25 +54,6 @@ void singly_linked_list<T>::push(T& e){ // z³o¿onoœæ push front O(1)
 	++l_size;
 }
 
-
-template<typename T>
-void singly_linked_list<T>::push_back(T& e){ // z³o¿onoœæ czasowa O(n)
-
-	element<T>* node;
-	node = new element<T>(e);
-
-	element<T>* tmp = head;
-	
-	if (tmp != NULL){
-		
-		while (tmp != NULL){
-			tmp = tmp->next;
-		}
-	}
-	
-	tmp = node;
-	++l_size;
-}
 
 
 template<typename T>

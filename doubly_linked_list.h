@@ -8,7 +8,10 @@
 template<typename T>
 class doubly_linked_list : public singly_linked_list<T> {
 
+protected:
+
 	element<T> *tail;
+
 
 public:
 
@@ -16,7 +19,6 @@ public:
 	
 	void push(T& e);
 	T pop();
-	//void clear();
 	T back();
 	T previous();
 
@@ -58,6 +60,25 @@ T doubly_linked_list<T>::pop(){
 	return data;
 }
 
+
+template<typename T>
+T doubly_linked_list<T>::back(){
+	i = l_size;
+	return *head->data;
+}
+
+
+template<typename T>
+T doubly_linked_list<T>::previous(){
+	element<T>* e = head;
+	
+	for (int j=0; j<i; ++j){
+		e = e->next;
+	}
+	
+	++i;
+	return *e->data;
+}
 
 
 
