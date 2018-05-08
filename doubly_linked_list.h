@@ -30,10 +30,15 @@ template<typename T>
 void doubly_linked_list<T>::push(T& e){
 
 	element<T>* node;
-
 	node = new element<T>(e);
-	node->next = head;
-	head->prev = node;
+
+	if (head == NULL){ // adding 1st element to list
+		tail = node;
+	}
+	else{
+		node->next = head;
+		head->prev = node;
+	}	
 	head = node;
 	++l_size;
 }
