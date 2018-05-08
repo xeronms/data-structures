@@ -17,11 +17,13 @@ public:
 
 template<typename T>
 class singly_linked_list {
+protected:
 
 	element<T> *head;
 	//element<T> *tail;
 	int l_size;
 	int i;
+
 
 public:
 
@@ -29,7 +31,6 @@ public:
 	
 	void push(T& e);
 	T pop();
-	//const T& search(const element<T>&) const;
 	void clear();
 	T front();
 	T next();

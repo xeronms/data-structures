@@ -14,7 +14,7 @@ public:
 
 	doubly_linked_list() : singly_linked_list<T>(), tail(NULL) {}
 	
-	//void push(T& e);
+	void push(T& e);
 	T pop();
 	void push_back(T& e);
 	//void clear();
