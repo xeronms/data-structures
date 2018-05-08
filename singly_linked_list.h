@@ -22,7 +22,7 @@ protected:
 	element<T> *head;
 	//element<T> *tail;
 	int l_size;
-	int i;
+	int i; // index for next() and previous() functions
 
 
 public:
