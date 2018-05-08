@@ -16,7 +16,6 @@ public:
 	
 	void push(T& e);
 	T pop();
-	void push_back(T& e);
 	//void clear();
 	T back();
 	T previous();
@@ -38,7 +37,7 @@ void doubly_linked_list<T>::push(T& e){
 	else{
 		node->next = head;
 		head->prev = node;
-	}	
+	}
 	head = node;
 	++l_size;
 }
