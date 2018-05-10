@@ -1,4 +1,5 @@
 #zad1:
+[zrobic make'i, makeclean]
 
 zrobić headery do poprzednich zadań; macierze, bmp...
 i zrobić do nich makefaile
@@ -19,6 +20,7 @@ makefile słuzy do tego żeby nie kompilować za każdym razem wszystkiego, jedy
 
 
 #zad2:
+[dodać iteratory do kontenerów (najpierw jako zwykłe klasy, potem w list<T>), naprawić next()]
 
 iteratory są uogólnieniem wskaźników
 
