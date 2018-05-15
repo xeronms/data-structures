@@ -1,0 +1,82 @@
+#zad1:
+[zrobic make'i, makeclean]
+
+zrobić headery do poprzednich zadań; macierze, bmp...
+i zrobić do nich makefaile
+
+projekty oparte na makefile
+napisać te makefile ręcznie(pojawiają się parametry, odpowiednik makroproces)
+
+make:
+ktore pliki od których zależą
+robiąc projekt z paru plików cpp i h: każdy plik kompilujemy do odzielnej kompilacje jako .obj
+póżniej pliki .obj linkujemy linkerem do pliku wykonywalnego .exe (lub budujemy biblioteke która nie ma swojego main'a, ale można ją np obliczyć, lub dokumentacje, lub strone html lub cokolwiek)
+
+make:
+patrzy czy coś się zmieniło w plikach z których mamy budować
+(regułka zależności - od czego plik zależy) 
+
+makefile słuzy do tego żeby nie kompilować za każdym razem wszystkiego, jedynie to co się zmieniło
+
+
+#zad2:
+[dodać iteratory do kontenerów (najpierw jako zwykłe klasy, potem w list<T>), naprawić next()]
+
+iteratory są uogólnieniem wskaźników
+
+int tab[];
+int *p = tab;
+//równoważne z 
+int *p = &tab[0]
+
+
+iterator to wskaznik dla którego działa
+
+p = &lista[0]
+for (;*p;++p){
+	std::cout << *p;	
+}
+
+
+set - zbiór
+multiset - zbiór gdzie elementy mogą sie powtarzac
+
+wyszukanie leementu - dzielimy zbior na dwa (bisekcja)
+
+zadanie dodatkowe:
+	własny zbiór na własnym drzewie
+
+
+
+
+#include <iostream>
+#include "singly_linked_list.h"
+
+// moja lista powinna mieć next(node)
+
+class list_int : public singly_linked_list<int>{
+	
+	
+public:
+	class iterator{
+		
+		element<int> current;
+		list_int& li; // gdyby next było statyczne to byśmy nie potrzebowali tej referencji do listy. wtedy wołalibyśmy tylko next() na klasie
+		
+	public:
+		
+		int& opetrator++(){
+			element<int> current = li.next(current);
+			return current.data;
+		}
+		int operator++(int){
+			element<int> old = current;
+			current = li.next(current);
+			
+			return old.data;
+		}
+		
+		
+		
+	};
+};
