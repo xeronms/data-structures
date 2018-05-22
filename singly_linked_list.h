@@ -7,6 +7,7 @@ template<typename T>
 class singly_linked_list {
 protected:
 
+
 	template<typename T>
 	class element{
 	public:
@@ -25,10 +26,13 @@ protected:
 	int l_size;
 
 
+
 public:
+
 
 	singly_linked_list():head(NULL), l_size(0){}
 	
+
 	void push(T& e);
 	T pop();
 	void clear();
@@ -38,6 +42,19 @@ public:
 	int size()const{ return l_size;}
 	bool operator==(singly_linked_list<T>& );
 	bool operator!=(singly_linked_list<T>& );
+
+
+	template<typename T>
+	class iterator{
+		element<T>* current;
+		singly_linked_list<T>& li;
+		
+	public:
+		iterator(singly_linked_list<T> l):li(l),current(l.front){}
+		iterator<T>& operator++();
+		//iterator<T>& operator++(int);
+		T operator*();
+	};
 
 };
 
@@ -115,11 +132,20 @@ bool singly_linked_list<T>::operator==(singly_linked_list<T>& L){
 	return 1;
 }
 
+
 template<typename T>
 bool singly_linked_list<T>::operator!=(singly_linked_list<T>& L){
 	return !(*this==L);
 }
 
+
+
+template<typename T>
+typename singly_linked_list<T>::iterator<T> & singly_linked_list<T>::iterator<T>::operator++(){
+	
+	//if ( current ) current = current->next;
+	//return current;
+}
 
 
 
