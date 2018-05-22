@@ -62,6 +62,9 @@ public:
 	}
 
 
+	T* stack_top() const{
+		return &tab[top-1];
+	}
 	
 
 
@@ -77,7 +80,7 @@ public:
 		iterator(iterator& it): st(it.st), current(it.current){} //konstr. kopiujacy, potrzebny do operator++(int)
 
 		iterator& operator++(){
-			if( current ) current = ++st.tab;
+			if( current ) ++current;
 			return *this;
 		}
 
@@ -85,7 +88,7 @@ public:
 			iterator it(*this);
 
 			if ( current ){	
-				current = ++st.tab;
+				++current;
 			}
 			return it;
 		}
@@ -97,7 +100,7 @@ public:
 
 		operator bool() const{
 			
-			return current != &st.tab[st.top-1];
+			return current > st.stack_top();
 		}
 	};
 };

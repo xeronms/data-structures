@@ -30,6 +30,8 @@ int main(){ //przykladowe dzialania
 			S1.pop();
 		}
 
+		std::cout << *S1.stack_top() << std::endl;
+
 		for ( Stack<int,1000,20>::iterator s_it = S1; s_it; ++s_it ){
 			printf("%d\t",*s_it);
 		}
