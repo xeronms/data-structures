@@ -21,8 +21,9 @@ public:
 	void push_back(T& e);
 	T pop();
 	T pop_back();
-	T back();
-	T previous();
+	element<T>* back() const;
+	element<T>* previous(element<T>* ) const;
+	element<T>* previous() const;
 
 };
 
@@ -94,27 +95,21 @@ T doubly_linked_list<T>::pop_back(){
 
 
 template<typename T>
-T doubly_linked_list<T>::back(){
-	i = l_size;
-	return *tail->data;
+typename doubly_linked_list<T>::element<T>* doubly_linked_list<T>::back() const{
+	return tail;
 }
 
 
 template<typename T>
-T doubly_linked_list<T>::previous(){
-	element<T>* e = tail;
-	
-	if (i!=0){
-		--i;
-
-		for (int j=l_size; j>i; --j){
-			e = e->prev;
-		}
-	}
-
-	return *e->data;
+typename doubly_linked_list<T>::element<T>* doubly_linked_list<T>::previous(typename doubly_linked_list<T>::element<T>* e) const{
+	return e.prev;
 }
 
+
+template<typename T>
+typename doubly_linked_list<T>::element<T>* doubly_linked_list<T>::previous() const{
+	return back();
+}
 
 
 #endif
