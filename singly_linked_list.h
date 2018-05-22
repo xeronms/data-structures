@@ -50,7 +50,7 @@ public:
 		singly_linked_list<T>& li;
 
 	public:
-		iterator(singly_linked_list<T> l):li(l),current(l.front()){}
+		iterator(singly_linked_list<T>& l):li(l),current(l.front()){}
 		iterator(iterator& it):li(it.li),current(it.current){} //konstr. kopiujacy, potrzebny do operator++(int)
 		iterator& operator++();
 		iterator operator++(int);

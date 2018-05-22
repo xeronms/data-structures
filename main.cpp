@@ -29,7 +29,12 @@ int main(){ //przykladowe dzialania
 		for (int j=0; j<590; ++j){
 			S1.pop();
 		}
+
+		for ( Stack<int,1000,20>::iterator s_it = S1; s_it; ++s_it ){
+			printf("%d\t",*s_it);
+		}
 	}
+
 	catch (Exception){std::cout << "ERR"<< std::endl;}
 
 
