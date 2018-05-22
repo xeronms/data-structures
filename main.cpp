@@ -2,6 +2,7 @@
 #include "dynamic_stack.h"
 #include "singly_linked_list.h"
 #include "doubly_linked_list.h"
+#include "container.h"
 #include <iostream>
 
 
@@ -34,20 +35,24 @@ int main(){ //przykladowe dzialania
 
 	singly_linked_list<int> L1;
 	int t =20, r = 10, s= 15;
-	L1.push(t);L1.push(r);L1.push(s); 
-	printf("\n%d\n",L1.pop());
-	printf("%d %d\n",L1.next(),L1.next());
+	L1.push(t);L1.push(r);L1.push(s);
 	L1.clear();
 
 	singly_linked_list<int> L2;
 	L2.push(s);
-	printf("%d\n",L2!=L1);
+	L2==L1;
 
 
 	doubly_linked_list<double> L3;
 	double t2 =20, r2 = 10, s2= 15;
 	L3.push(t2);L3.push(r2);
 	L3.pop();L3.push_back(s2);
-	printf("%lf %lf %lf\n",L3.next(), L3.pop_back(),L3.next());
+
+
+	container<int> tab(0);
+	int a2=5, b2=4;
+	tab.push_back(a2); tab.push_back(b2);tab.pop_back();
+
+
 	return 0;
 }
