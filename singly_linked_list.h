@@ -44,16 +44,18 @@ public:
 	bool operator!=(singly_linked_list<T>& );
 
 
-	template<typename T>
+
 	class iterator{
 		element<T>* current;
 		singly_linked_list<T>& li;
-		
+
 	public:
-		iterator(singly_linked_list<T> l):li(l),current(l.front){}
-		iterator<T>& operator++();
-		//iterator<T>& operator++(int);
+		iterator(singly_linked_list<T> l):li(l),current(l.front()){}
+		iterator(iterator& it):li(it.li),current(it.current){} //konstr. kopiujacy, potrzebny do operator++(int)
+		iterator& operator++();
+		iterator operator++(int);
 		T operator*();
+		operator bool() const;
 	};
 
 };
@@ -140,11 +142,40 @@ bool singly_linked_list<T>::operator!=(singly_linked_list<T>& L){
 
 
 
+
 template<typename T>
-typename singly_linked_list<T>::iterator<T> & singly_linked_list<T>::iterator<T>::operator++(){
+typename singly_linked_list<T>::iterator & singly_linked_list<T>::iterator::operator++(){
 	
-	//if ( current ) current = current->next;
-	//return current;
+	if ( current ) current = current->next;
+	return *this;
+}
+
+
+
+template<typename T>
+typename singly_linked_list<T>::iterator singly_linked_list<T>::iterator::operator++(int){
+	
+	iterator it(*this);
+
+	if ( current ){	
+		current = current->next;
+	}
+	return it;
+}
+		
+
+
+template<typename T>
+T singly_linked_list<T>::iterator::operator*(){
+	
+	return *current->data;
+
+}
+
+template<typename T>
+singly_linked_list<T>::iterator::operator bool() const{
+	
+	return current != NULL;
 }
 
 
