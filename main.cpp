@@ -39,7 +39,7 @@ int main(){ //przykladowe dzialania
 
 	
 
-	for(singly_linked_list<int>::iterator it = L1; it; ++it){ // przejscie po liscie za pomoca iteratora
+	for(singly_linked_list<int>::iterator it = L1; it; ++it){ // przejscie po liscie za pomoca iteratora, ++it
 		printf("%d\n",*it);
 	}
 
@@ -54,6 +54,10 @@ int main(){ //przykladowe dzialania
 	double t2 =20, r2 = 10, s2= 15;
 	L3.push(t2);L3.push(r2);
 	L3.pop();L3.push_back(s2);
+
+	for(doubly_linked_list<double>::iterator it = L3; it; it++){ // przejscie po liscie za pomoca iteratora, it++
+		printf("%lf\n",*it);
+	}
 
 
 	container<int> tab(0);
