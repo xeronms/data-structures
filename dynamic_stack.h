@@ -100,7 +100,7 @@ public:
 
 		operator bool() const{
 			
-			return current > st.stack_top();
+			return current < st.stack_top();
 		}
 	};
 };

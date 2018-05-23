@@ -2,7 +2,6 @@
 #include "dynamic_stack.h"
 #include "singly_linked_list.h"
 #include "doubly_linked_list.h"
-#include "container.h"
 #include <iostream>
 
 
@@ -62,14 +61,9 @@ int main(){ //przykladowe dzialania
 	L3.push(t2);L3.push(r2);
 	L3.pop();L3.push_back(s2);
 
-	for(doubly_linked_list<double>::iterator it = L3; it; it++){ // przejscie po liscie za pomoca iteratora, it++
-		printf("%lf\n",*it);
+	for(doubly_linked_list<double>::iterator it2 = L3; it2; it2++){ // przejscie po liscie za pomoca iteratora, it++
+		printf("%lf\n",*it2);
 	}
-
-
-	container<int> tab(0);
-	int a2=5, b2=4;
-	tab.push_back(a2); tab.push_back(b2);tab.pop_back();
 
 
 
