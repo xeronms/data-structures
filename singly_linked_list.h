@@ -11,12 +11,12 @@ protected:
 	template<typename T>
 	class element{
 	public:
-			T* data;
+			const T* data;
 			element* next;
 			element* prev;
 
 			element():next(NULL), prev(NULL), data(NULL){}
-			element(T& a):data(&a),next(NULL), prev(NULL){}
+			element(const T& a):data(&a),next(NULL), prev(NULL){}
 	};
 
 	
@@ -33,7 +33,7 @@ public:
 	singly_linked_list():head(NULL), l_size(0){}
 	
 
-	void push(T& e);
+	void push(const T& e);
 	T pop();
 	void clear();
 	element<T>* front() const;
@@ -64,7 +64,7 @@ public:
 
 
 template<typename T>
-void singly_linked_list<T>::push(T& e){ // z³o¿onoœæ czasowa dla push front O(1)
+void singly_linked_list<T>::push(const T& e){ // z³o¿onoœæ czasowa dla push front O(1)
 
 	element<T>* node;
 
